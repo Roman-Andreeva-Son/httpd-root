@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная работа по веб-программированию</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1> ФИО: Мищенко Роман Андреевич</h1>
+    <h1>Группа: Р3217</h1>
+    <h1>Вариант: 314014</h1>
+</header>
+<svg class = "sculpture"  xmlns="http://www.w3.org/2000/svg" width="300" height="300">
+    <!-- Прямоугольник -->
+    <rect x="150" y="30" width="120" height="120" fill="#3399ff" fill-opacity="0.8"></rect>
+
+    <!-- Четверть круга -->
+    <path d="M 150 150 L 90 150 C 90 185 125 210 150 210 Z" fill="#3399ff" fill-opacity="0.8"></path>
+
+    <!-- Треугольник -->
+    <polygon points="150,150 210,150 150,270" fill="#3399ff" fill-opacity="0.8"></polygon>
+
+    <!-- Оси -->
+    <line x1="0" y1="150" x2="300" y2="150" stroke="beige"></line>
+    <line x1="150" y1="0" x2="150" y2="300" stroke="beige"></line>
+
+    <!-- Метки на осях -->
+    <line x1="210" y1="148" x2="210" y2="152" stroke="beige"></line>
+    <text x="200" y="140">R/2</text>
+
+    <line x1="270" y1="148" x2="270" y2="152" stroke="beige"></line>
+    <text x="265" y="140">R</text>
+
+    <line x1="90" y1="148" x2="90" y2="152" stroke="beige"></line>
+    <text x="75" y="140">-R/2</text>
+
+    <line x1="30" y1="148" x2="30" y2="152" stroke="beige"></line>
+    <text x="20" y="140">-R</text>
+
+    <line x1="148" y1="90" x2="152" y2="90" stroke="beige"></line>
+    <text x="156" y="95">R/2</text>
+
+    <line x1="148" y1="30" x2="152" y2="30" stroke="beige"></line>
+    <text x="156" y="35">R</text>
+
+    <line x1="148" y1="210" x2="152" y2="210" stroke="beige"></line>
+    <text x="156" y="215">-R/2</text>
+
+    <line x1="148" y1="270" x2="152" y2="270" stroke="beige"></line>
+    <text x="156" y="275">-R</text>
+
+    <!-- Стрелки на осях -->
+    <polygon points="300,150 295,155 295,145" fill="#000720" stroke="beige"></polygon>
+    <polygon points="150,0 145,5 155,5" fill="#000720" stroke="beige"></polygon>
+    <!-- точка результата-->
+    <circle id="pointer" r="5" cx="150" cy="150" fill-opacity="0.9" fill="red" stroke="firebrick"
+            visibility="hidden"></circle>
+
+</svg>
+
+<div class="container">
+    <h1>Проверка попадания точки</h1>
+    <form id="hitForm" method="POST">
+        <label for="x">X:</label>
+        <input type="number" id="x" name="x" min="-4" max="4" step="0.1" required><br>
+
+        Y:
+        <label><input type="radio" name="y" value="-4" > -4</label>
+        <label><input type="radio" name="y" value="-3" > -3</label>
+        <label><input type="radio" name="y" value="-2" > -2</label>
+        <label><input type="radio" name="y" value="-1" > -1</label>
+        <label><input type="radio" name="y" value="0" > -0</label>
+        <label><input type="radio" name="y" value="1" > 1</label>
+        <label><input type="radio" name="y" value="2" > 2</label>
+        <label><input type="radio" name="y" value="3" > 3</label>
+        <label><input type="radio" name="y" value="4" > 4</label>
+        <br>
+
+        <label for="r">R:</label>
+        <input type="number" id="r" name="r" min="2" max="5" step="0.1" required><br>
+
+       <button type="button" onclick="sendRequest()">Проверить</button>
+    </form>
+
+    <h2>Результаты</h2>
+    <table id="resultsTable">
+        <thead>
+        <tr>
+            <th>X</th>
+            <th>Y</th>
+            <th>R</th>
+            <th>Попадание</th>
+            <th>Время запроса</th>
+            <th>Время выполнения</th>
+            </tr>
+        </thead>
+        <tbody id="resultsBody">
+
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript" src="scripts/sendRequest.js"></script>
+
+</body>
+</html>
